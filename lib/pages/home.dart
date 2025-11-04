@@ -125,15 +125,7 @@ class HomePageState extends State<HomePage> {
 
   void addNewBandToList(String name) {
     if (name.isNotEmpty) {
-      setState(() {
-        bands.add(
-          Band(
-            id: DateTime.now().toString(), // unique id
-            name: name,
-            votes: 0,
-          ),
-        );
-      });
+      bands.removeWhere((item) => item.id == item.id);
 
       Navigator.pop(context); // closes the dialog
     }
